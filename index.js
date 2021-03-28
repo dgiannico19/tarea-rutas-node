@@ -160,6 +160,51 @@ style="
   href="/about">About</a>
   </div>
     `;
+const errorPage = () => `
+<div
+style="
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+"
+>
+<p style="color: black; font-size: 46px">Caiste en un error 402</p>
+<span style="color: black; font-size: 30px">$$$$$$ Poniendo estaba la ganza $$$$$$</span>
+<div
+style="
+  background-color: green;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+"
+>
+</div>
+<span style="color: black; font-size: 30px">O sino presiona en Home</span>
+</div>
+<div style="
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+">
+<a
+style="
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 30px;
+  cursor: pointer;
+  padding-bottom: 20px;
+  "
+  href="/"
+  >Home</a
+  >
+ 
+  </div>
+    `;
 
 const server = http.createServer((req, res) => {
   if (req.url == '/') {
@@ -175,7 +220,8 @@ const server = http.createServer((req, res) => {
     res.write(productPage());
     res.end();
   } else {
-    res.writeHead(418, { 'Content-Type': 'text/html' });
+    res.writeHead(402, { 'Content-Type': 'text/html' });
+    res.write(errorPage());
     res.end();
   }
 });
